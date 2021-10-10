@@ -1,0 +1,78 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstTestInSelenium {
+
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+
+//setting the driver executable
+System.setProperty("webdriver.chrome.driver", ".\\Driver\\chromedriver.exe");
+
+//Initiating your chromedriver
+WebDriver driver=new ChromeDriver();
+
+//Applied wait time
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//maximize window
+driver.manage().window().maximize();
+
+//open browser with desried URL
+driver.get("http://computer-database.gatling.io/computers");
+
+//Get the WebElement corresponding to the searchbox Field		
+WebElement searchbox = driver.findElement(By.name("searchbox"));
+
+//Verify that Computer Databases text is displayed
+driver.findElement(By.xpath("/html/body/header/h1"))
+
+//Validate and Click on Next button
+driver.findElement(By.linkText("Next →")).click();
+
+//Validate and Click on Previous button
+driver.findElement(By.linkText("Next →")).click();
+
+//Enter values on search box
+searchbox.sendKeys("ASCI");
+
+//Verify that "Filter by Name" button is displayed and Click button
+driver.findElement(By.id("searchsubmit")).click();
+
+//Verify that Computer name link is displayed and clickable
+driver.findElement(By.id("Computer name")).click();
+
+//Verify that Computer name link is displayed and clickable
+driver.findElement(By.linkText("Introduced")).click();
+
+//Verify that Computer name link is displayed and clickable
+driver.findElement(By.linkText("Discontinued")).click();
+
+//Verify that Computer name link is displayed and clickable
+driver.findElement(By.linkText("Company")).click();
+
+//Verify on Add a computer button
+driver.findElement(By.id("add")).click();
+
+//Enter value on Computer name field
+driver.findElement(By.id("name")).sendkeys("automation_test");
+
+//Enter value on Computer name field
+driver.findElement(By.id("introduced)).sendkeys("1980-10-10");
+
+//Enter value on Computer name field
+driver.findElement(By.id("discontinued)).sendkeys("2010-10-10"");
+
+//Enter value on Computer name field
+driver.findElement(By.id("company")).sendkeys("IBM");
+
+//Click Create this computer button
+driver.findElement(By.xpath("//*[@id="main"]/form/div/input")).click();
+
+//closing the browser
+driver.close();
+
+}
+
+}

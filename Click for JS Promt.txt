@@ -1,0 +1,42 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FirstTestInSelenium {
+
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+
+//setting the driver executable
+System.setProperty("webdriver.chrome.driver", ".\\Driver\\chromedriver.exe");
+
+//Initiating your chromedriver
+WebDriver driver=new ChromeDriver();
+
+//Applied wait time
+driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//maximize window
+driver.manage().window().maximize();
+
+//open browser with the following URL
+driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+
+//Click the link to activate the alert
+driver.findElement(By.linkText("I am a JS prompt)).click();
+
+//Wait for the alert to be displayed and store it in a variable
+Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+
+//Store the alert text in a variable
+String text = alert.getText();
+
+//Press the OK button
+alert.accept();
+
+//closing the browser
+driver.close();
+
+}
+
+}
